@@ -1,6 +1,13 @@
+:root {
+    --light-color: #EFE3E3;
+    --light-red: #AB3838;
+    --medium-red: #982C2C;
+    --dark-red: #632B2B;
+}
+
 body {
-    background-color: #C14040;
-    color: #EFE3E3;
+    background-color: var(--light-red);
+    color: var(--light-color);
     font-family: 'Bree Serif', serif;
 }
 
@@ -10,11 +17,11 @@ body {
 }
 
 .site-header {
-    background-color: #EFE3E3;
+    background-color: var(--light-color);
     margin: 1rem;
     padding: 2rem;
     border-radius: 2rem;
-    color: #982C2C;
+    color: var(--light-red);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,6 +31,13 @@ body {
     font-size: 2.5rem;
 }
 
+.page-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 2rem;
+}
+
 .pokemon-list {
     display: flex;
     flex-wrap: wrap;
@@ -31,7 +45,7 @@ body {
 
 .pokemon-list__box {
     max-width: calc(100% / 3 - 2rem);
-    background-color: #982C2C;
+    background-color: var(--medium-red);
     border-radius: 3rem;
     margin: 1rem;
     padding: 2rem;
@@ -43,4 +57,77 @@ body {
 .pokemon-list__img {
     max-width: 100%;
     margin-bottom: 1rem;
+}
+
+.pokemon-detail {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pokemon-detail__img {
+    max-width: 100%;
+}
+
+.pokemon-detail__card {
+    background-color: var(--medium-red);
+    border-radius: 3rem;
+    width: 70%;
+    margin-left: 2rem;
+    padding: 2rem;
+}
+
+.pokemon-detail__name {
+    font-size: 2.3rem;
+    font-weight: bold;
+    margin: 3rem 0 2rem;
+}
+
+.pokemon-detail__type {
+    border: 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: var(--light-color);
+    font-family: inherit;
+    font-size: 1.6rem;
+    margin: 0 0.5rem 2rem 0;
+}
+
+.pokemon-detail__stats-title {
+    font-size: 1.9rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.progress-bar {
+    background-color: #632B2B;
+    border-radius: 0.5rem;
+    height: 20px;
+    width: 100%;
+}
+
+.progress-bar__full {
+    background-color: var(--light-color);
+    border-radius: 0.5rem 0 0 0.5rem;
+    height: 100%;
+}
+
+.pokemon-detail__table {
+    width: 100%;
+}
+
+.pokemon-detail__cell {
+    padding-bottom: 0.5rem;
+}
+
+.pokemon-detail__cell--stat {
+    width: 15%;
+}
+
+.pokemon-detail__cell--progress {
+    width: 60%;
+}
+
+.homelink {
+    text-align: center;
+    margin-top: 2rem;
 }

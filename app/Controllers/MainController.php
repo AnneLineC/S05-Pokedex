@@ -3,6 +3,7 @@
 namespace Pokedex\Controllers;
 
 use Pokedex\Models\Pokemon;
+use Pokedex\Models\Type;
 
 class MainController {
 
@@ -11,6 +12,7 @@ class MainController {
      * URL '/'
      */
     function home() {
+
         $pokemonObject = new Pokemon;
         $pokemons = $pokemonObject->findAll();
 
@@ -23,8 +25,41 @@ class MainController {
      */
     function detail($params) {
         
-        
-        $this->show('detail');
+        // On récupère le détail d'un pokémon en fonction de son numéro
+        $pokemonObject = new Pokemon;
+        $pokemon = $pokemonObject->find($params['numero']);
+
+        // On récupère les types d'un pokémon en fonction de son numéro
+        $typeObject = new Type;
+        $types = $typeObject->findAllByNumero($params['numero']);
+
+        // On calcule la taille de la div représentant la progression de la statistique
+        $pv = $pokemon->getPv();
+        $pvSize = ($pv * 100 / 255);
+        $attaque = $pokemon->getAttaque();
+        $attaqueSize = ($attaque * 100 / 255);
+        $defense = $pokemon->getDefense();
+        $defenseSize = ($defense * 100 / 255);
+        $attaque_spe = $pokemon->getAttaque_spe();
+        $attaqueSpeSize = ($attaque_spe * 100 / 255);
+        $defense_spe = $pokemon->getDefense_spe();
+        $defenseSpeSize = ($defense_spe * 100 / 255);
+        $vitesse = $pokemon->getVitesse();
+        $vitesseSize = ($vitesse * 100 / 255);
+        $divSizes = [
+            'pvSize' => $pvSize, 
+            'attaqueSize' => $attaqueSize, 
+            'defenseSize' => $defenseSize, 
+            'attaqueSpeSize' => $attaqueSpeSize, 
+            'defenseSpeSize' => $defenseSpeSize, 
+            'vitesseSize' => $vitesseSize
+        ];
+
+        $this->show('detail', [
+            'pokemon' => $pokemon, 
+            'types' => $types,
+            'divSizes' => $divSizes
+        ]);
     }
 
 

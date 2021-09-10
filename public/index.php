@@ -27,7 +27,7 @@ $routes = [
     // Route 'detail'
     [
         'GET',
-        '/detail/[i:id]',
+        '/detail/[i:numero]',
         [
             'controller' => 'MainController',
             'action' => 'detail'

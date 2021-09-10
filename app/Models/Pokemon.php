@@ -34,6 +34,23 @@ class Pokemon extends CoreModel {
         return $pokemons;
     }
 
+    public function find($numero) {
+        $sql = "SELECT * from `pokemon` WHERE numero = " . $numero;
+
+        // Database::getPDO() retourne l'objet PDO représentant la connexion à la BDD
+        $pdo = Database::getPDO();
+
+        // Exécution de la requête pour récupérer les Products
+        $pdoStatement = $pdo->query($sql);
+
+        // PDO va construire un tableau qui a pour éléments des objets Product 
+        // self::class renvoie le nom complet de la classe courante
+        $pokemons = $pdoStatement->fetchObject(self::class);
+
+        // renvoie un tableau d'objets
+        return $pokemons;
+    }    
+
     /**
      * Get the value of pv
      */ 

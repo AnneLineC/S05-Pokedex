@@ -1,10 +1,10 @@
 <div class="pokemon-list">
 <?php foreach ($viewData['pokemons'] as $pokemon) : ?>
-    <div class="pokemon-list__box">
-        <a href="#">
+    <article class="pokemon-list__box">
+        <a href="<?php $router->generate('detail', ['numero' => $pokemon->getNumero()]) ?>">
             <img class="pokemon-list__img" src="img/<?= $pokemon->getNumero() ?>.png" alt="">
         </a>
-        <p><a href="#">#<?= $pokemon->getNumero() ?> <?= $pokemon->getNom() ?></a></p>
-    </div>
+        <p><a href="<?php $router->generate('detail', ['numero' => $pokemon->getNumero()]) ?>">#<?= $pokemon->getNumero() ?> <?= $pokemon->getNom() ?></a></p>
+</article>
 <?php endforeach; ?>
 </div>
