@@ -34,6 +34,16 @@ $routes = [
         ],
         'detail'
     ],
+    // Route 'types'
+    [
+        'GET',
+        '/types',
+        [
+            'controller' => 'MainController',
+            'action' => 'types'
+        ],
+        'types'
+    ],
 ];
 
 //* Transmission des routes à Altorouteur
