@@ -20,8 +20,8 @@ class MainController {
     }
 
     /**
-     * Route 'home'
-     * URL '/'
+     * Route 'detail'
+     * URL '/detail/[i:id]'
      */
     function detail($params) {
         
@@ -63,8 +63,8 @@ class MainController {
     }
 
     /**
-     * Route 'home'
-     * URL '/'
+     * Route 'types'
+     * URL '/types'
      */
     function types() {
 
@@ -72,6 +72,24 @@ class MainController {
         $types = $typeObject->findAll();
 
         $this->show('types', ['types' => $types]);
+    }
+
+    /**
+     * Route 'pokemons-by-type'
+     * URL '/type/[i:id]'
+     */
+    function pokemonsByType($params) {
+
+        $pokemonObject = new Pokemon;
+        $pokemons = $pokemonObject->findAllByType($params['id']);
+
+        $typeObject = new Type;
+        $type = $typeObject->find($params['id']);
+
+        $this->show('type', [
+            'pokemons' => $pokemons, 
+            'type' => $type
+        ]);
     }
 
 

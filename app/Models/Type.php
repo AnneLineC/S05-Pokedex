@@ -51,6 +51,23 @@ class Type extends CoreModel {
         return $types;
     }
 
+    public function find($id) {
+        $sql = "SELECT * FROM `type` WHERE id = " . $id;
+
+        // Database::getPDO() retourne l'objet PDO représentant la connexion à la BDD
+        $pdo = Database::getPDO();
+
+        // Exécution de la requête pour récupérer les Products
+        $pdoStatement = $pdo->query($sql);
+
+        // PDO va construire un tableau qui a pour éléments des objets Product 
+        // self::class renvoie le nom complet de la classe courante
+        $type = $pdoStatement->fetchObject(self::class);
+
+        // renvoie un tableau d'objets
+        return $type;
+    }
+
 
     /**
      * Get the value of couleur

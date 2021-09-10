@@ -44,15 +44,15 @@ $routes = [
         ],
         'types'
     ],
-    // Route 'pokemons-by-type'
+    // Route 'type'
     [
         'GET',
-        '/types/[i:id]',
+        '/bytype/[i:id]',
         [
             'controller' => 'MainController',
-            'action' => 'types'
+            'action' => 'pokemonsByType'
         ],
-        'pokemons-by-type'
+        'by-type'
     ],
 ];
 

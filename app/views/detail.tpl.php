@@ -8,7 +8,7 @@
         <h3 class="pokemon-detail__name">#<?= $viewData['pokemon']->getNumero() ?> <?= $viewData['pokemon']->getNom(); ?></h3>
 
         <?php foreach ($viewData['types'] as $type) : ?>
-        <button class="pokemon-type" style="background-color: #<?= $type->getCouleur() ?>;"><?= $type->getNom() ?></button>
+        <a href="<?= $router->generate('by-type', ['id' => $type->getId()]); ?>"><button class="pokemon-type" style="background-color: #<?= $type->getCouleur() ?>;"><?= $type->getNom() ?></button></a>
         <?php endforeach; ?>
 
         <h4 class="pokemon-detail__stats-title">Statistiques</h4>
