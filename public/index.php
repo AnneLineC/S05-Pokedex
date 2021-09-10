@@ -24,7 +24,16 @@ $routes = [
         ],
         'home'
     ],
-
+    // Route 'detail'
+    [
+        'GET',
+        '/detail/[i:id]',
+        [
+            'controller' => 'MainController',
+            'action' => 'detail'
+        ],
+        'detail'
+    ],
 ];
 
 //* Transmission des routes à Altorouteur

@@ -6,11 +6,25 @@ use Pokedex\Models\Pokemon;
 
 class MainController {
 
+    /**
+     * Route 'home'
+     * URL '/'
+     */
     function home() {
         $pokemonObject = new Pokemon;
         $pokemons = $pokemonObject->findAll();
 
         $this->show('home', ['pokemons' => $pokemons]);
+    }
+
+    /**
+     * Route 'home'
+     * URL '/'
+     */
+    function detail($params) {
+        
+        
+        $this->show('detail');
     }
 
 
