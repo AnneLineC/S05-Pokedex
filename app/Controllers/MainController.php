@@ -62,6 +62,18 @@ class MainController {
         ]);
     }
 
+    /**
+     * Route 'home'
+     * URL '/'
+     */
+    function types() {
+
+        $typeObject = new Type;
+        $types = $typeObject->findAll();
+
+        $this->show('types', ['types' => $types]);
+    }
+
 
     /**
      * Méthode show() permettant d'afficher le bon template -> private car doit être appelée uniquement au sein du controller

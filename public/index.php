@@ -44,6 +44,16 @@ $routes = [
         ],
         'types'
     ],
+    // Route 'pokemons-by-type'
+    [
+        'GET',
+        '/types/[i:id]',
+        [
+            'controller' => 'MainController',
+            'action' => 'types'
+        ],
+        'pokemons-by-type'
+    ],
 ];
 
 //* Transmission des routes à Altorouteur
