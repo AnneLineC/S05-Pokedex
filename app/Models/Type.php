@@ -2,7 +2,7 @@
 
 namespace Pokedex\Models;
 
-use ParcoursMVC\Utils\Database;
+use Pokedex\Utils\Database;
 use \PDO;
 
 class Type extends CoreModel {

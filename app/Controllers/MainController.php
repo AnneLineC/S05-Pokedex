@@ -2,11 +2,17 @@
 
 namespace Pokedex\Controllers;
 
+use Pokedex\Models\Pokemon;
+
 class MainController {
 
     function home() {
-        $this->show('home');
+        $pokemonObject = new Pokemon;
+        $pokemons = $pokemonObject->findAll();
+
+        $this->show('home', ['pokemons' => $pokemons]);
     }
+
 
     /**
      * Méthode show() permettant d'afficher le bon template -> private car doit être appelée uniquement au sein du controller

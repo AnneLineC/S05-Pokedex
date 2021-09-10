@@ -24,6 +24,7 @@ $routes = [
         ],
         'home'
     ],
+
 ];
 
 //* Transmission des routes à Altorouteur
@@ -42,7 +43,7 @@ if ($match !== false) {
 
     // On instancie le controller et exécute la méthode
     $controller = new $controllerToUse();
-    $controller->$methodToUse();
+    $controller->$methodToUse($match['params']);
 }
 else {
     // Si l'URL n'existe pas dans notre tableau de routes, on renvoie une erreur 404
