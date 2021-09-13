@@ -18,14 +18,14 @@
 <body>
     <div class="container">
         <header class="site-header">
-            <h1 class="main-title"><a href="<?= $router->generate('home') ?>">Pokédex</a></h1>
+            <h1 class="main-title"><a href="<?= $viewData['router']->generate('home') ?>">Pokédex</a></h1>
             <nav class="site-nav">
                 <ul class="site-nav__list">
                     <li class="site-nav__item">
-                        <a class="site-nav__link" href="<?= $router->generate('home') ?>">Liste</a>
+                        <a class="site-nav__link" href="<?= $viewData['router']->generate('home') ?>">Liste</a>
                     </li>
                     <li class="site-nav__item">
-                        <a class="site-nav__link" href="<?= $router->generate('types'); ?>">Types</a>
+                        <a class="site-nav__link" href="<?= $viewData['router']->generate('types'); ?>">Types</a>
                     </li>
                 </ul>
             </nav>

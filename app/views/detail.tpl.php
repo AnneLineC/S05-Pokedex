@@ -8,7 +8,7 @@
         <h3 class="pokemon-detail__name">#<?= $viewData['pokemon']->getNumero() ?> <?= $viewData['pokemon']->getNom(); ?></h3>
 
         <?php foreach ($viewData['types'] as $type) : ?>
-        <a href="<?= $router->generate('by-type', ['id' => $type->getId()]); ?>"><button class="pokemon-type" style="background-color: #<?= $type->getCouleur() ?>;"><?= $type->getNom() ?></button></a>
+        <a href="<?= $viewData['router']->generate('by-type', ['id' => $type->getId()]); ?>"><button class="pokemon-type" style="background-color: #<?= $type->getCouleur() ?>;"><?= $type->getNom() ?></button></a>
         <?php endforeach; ?>
 
         <h4 class="pokemon-detail__stats-title">Statistiques</h4>
@@ -74,5 +74,5 @@
 </article>
 
 <p class="homelink">
-    <a class="homelink__link" href="<?php $router->generate('home') ?>">Revenir à la liste</a>
+    <a class="homelink__link" href="<?php $viewData['router']->generate('home') ?>">Revenir à la liste</a>
 </p>

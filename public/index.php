@@ -69,13 +69,16 @@ if ($match !== false) {
     // On récupére avec altorouteur (le résultat de match()) les données de la route (mappé plus haut)
     $controllerToUse = 'Pokedex\\Controllers\\' . $match['target']['controller'];
     $methodToUse = $match['target']['action'];
-
-    // On instancie le controller et exécute la méthode
-    $controller = new $controllerToUse();
-    $controller->$methodToUse($match['params']);
+    $params = $match['params'];
 }
 else {
-    // Si l'URL n'existe pas dans notre tableau de routes, on renvoie une erreur 404
-    http_response_code('404');
+    // Si l'URL n'existe pas dans notre tableau de routes, on renvoie vers la page 404
+    // http_response_code('404'); ?? Utile ?
+    $controllerToUse = 'Pokedex\\Controllers\\MainController';
+    $methodToUse = 'error404';
+    $params = [];
 }
 
+// On instancie le controller et exécute la méthode
+$controller = new $controllerToUse($router);
+$controller->$methodToUse($params);
