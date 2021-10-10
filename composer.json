@@ -1,11 +1,10 @@
 {
-    "name": "fabio/pokedex",
+    "name": "pokedex",
     "description": "Small pokedex for educational purpose",
     "type": "project",
     "authors": [
         {
-            "name": "Fabio",
-            "email": "fabio@oclock.io"
+            "name": "Anne-Line"
         }
     ],
     "require": {
